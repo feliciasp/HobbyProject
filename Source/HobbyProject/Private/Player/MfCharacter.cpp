@@ -40,6 +40,11 @@ void AMfCharacter::MoveForward(float InMovement)
 	AddMovementInput(GetActorForwardVector(), InMovement);
 }
 
+void AMfCharacter::MoveRight(float InMovement)
+{
+	AddMovementInput(GetActorRightVector(), InMovement);
+}
+
 // Called to bind functionality to input
 void AMfCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
@@ -47,6 +52,7 @@ void AMfCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 
 	//Basic axis movement
 	PlayerInputComponent->BindAxis("MoveForward", this, &AMfCharacter::MoveForward);
+	PlayerInputComponent->BindAxis("MoveRight", this, &AMfCharacter::MoveRight);
 	PlayerInputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
 
 }

@@ -33,6 +33,7 @@ protected:
 
 	//Start movement
 	void MoveForward(float InMovement);
+	void MoveRight(float InMovement);
 	//End movement
 
 public:	
