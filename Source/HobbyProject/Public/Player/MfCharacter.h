@@ -8,6 +8,7 @@
 
 class USpringArmComponent;
 class UCameraComponent;
+class UMfInteractionComponent;
 
 UCLASS()
 class HOBBYPROJECT_API AMfCharacter : public ACharacter
@@ -28,6 +29,9 @@ protected:
 	UCameraComponent* CameraComp;
 	//End 3D camera
 
+	UPROPERTY(VisibleAnywhere)
+	UMfInteractionComponent* InteractionComp;
+
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
@@ -35,6 +39,7 @@ protected:
 	void MoveForward(float InMovement);
 	void MoveRight(float InMovement);
 	//End movement
+	void PrimaryInteract();
 
 public:	
 	// Called every frame

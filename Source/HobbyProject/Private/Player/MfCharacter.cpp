@@ -6,6 +6,7 @@
 //comp includes
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
+#include "MfInteractionComponent.h"
 
 // Sets default values
 AMfCharacter::AMfCharacter()
@@ -19,6 +20,10 @@ AMfCharacter::AMfCharacter()
 
 	CameraComp = CreateDefaultSubobject<UCameraComponent>("CameraComp");
 	CameraComp->SetupAttachment(SpringArmComp);
+
+	InteractionComp = CreateDefaultSubobject<UMfInteractionComponent>("InteractionComp");
+
+	BaseEyeHeight = 50.0f;
 }
 
 // Called when the game starts or when spawned
@@ -55,5 +60,13 @@ void AMfCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	PlayerInputComponent->BindAxis("MoveRight", this, &AMfCharacter::MoveRight);
 	PlayerInputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
 
+	PlayerInputComponent->BindAction("PrimaryInteract", IE_Pressed, this, &AMfCharacter::PrimaryInteract);
 }
 
+void AMfCharacter::PrimaryInteract()
+{
+	if (InteractionComp)
+	{
+		InteractionComp->PrimaryInteract();
+	}
+}
