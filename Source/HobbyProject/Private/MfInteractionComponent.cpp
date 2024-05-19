@@ -12,6 +12,7 @@ UMfInteractionComponent::UMfInteractionComponent()
 	PrimaryComponentTick.bCanEverTick = true;
 
 	IsInteractable = false;
+	InteractionRange = 300.0f;
 	// ...
 }
 
@@ -46,7 +47,7 @@ void UMfInteractionComponent::PrimaryInteract()
 
 	FVector Start = Owner->GetActorLocation();
 	Start = Start - FVector(0.0f, 0.0f, 15.0f);
-	FVector End = Start + Owner->GetActorRotation().Vector() * 500;
+	FVector End = Start + Owner->GetActorRotation().Vector() * InteractionRange;
 	//.Vector gives direction vector
 
 	TArray<FHitResult> Hits;

@@ -13,6 +13,9 @@ class HOBBYPROJECT_API UMfInteractionComponent : public UActorComponent
 	GENERATED_BODY()
 
 public:	
+
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Interaction Properties")
+	float InteractionRange;
 	// Sets default values for this component's properties
 	UMfInteractionComponent();
 
