@@ -27,8 +27,11 @@ public:
 
 protected:
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Attributes")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Entity Properties")
 	float Restoration;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Entity Properties")
+	bool bIsInteractable;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TObjectPtr<UBoxComponent> InteractionVolume;
