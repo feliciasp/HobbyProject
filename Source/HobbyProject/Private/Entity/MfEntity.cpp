@@ -22,6 +22,8 @@ AMfEntity::AMfEntity()
 
 	InteractionWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("InteractionWidget"));
 	InteractionWidget->SetupAttachment(RootComponent);
+
+	bIsInteractable = false;
 }
 
 //// Called when the game starts or when spawned
@@ -47,6 +49,7 @@ void AMfEntity::OnVolumeBeginOverlap(UPrimitiveComponent* OverlappedComponent, A
 	if (OtherActor == this)
 		return;
 
+	bIsInteractable = true;
 	InteractionWidget->SetVisibility(true);
 }
 
@@ -55,6 +58,7 @@ void AMfEntity::OnVolumeEndOverlap(UPrimitiveComponent* OverlappedComponent, AAc
 	if (OtherActor == this)
 		return;
 
+	bIsInteractable = false;
 	InteractionWidget->SetVisibility(false);
 }
 
