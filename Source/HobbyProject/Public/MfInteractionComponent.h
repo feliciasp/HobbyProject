@@ -14,22 +14,20 @@ class HOBBYPROJECT_API UMfInteractionComponent : public UActorComponent
 
 public:	
 
-	UPROPERTY(EditDefaultsOnly, Category = "Interaction Properties")
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Interaction Properties")
 	float InteractionRange;
-
 	// Sets default values for this component's properties
 	UMfInteractionComponent();
 
-	void PrimaryInteract();
+	//omf waaaaaaaaaaaaaaaaaaaaawowo
 
-	//DEBUG OPTIONS
-	UPROPERTY(EditDefaultsOnly, Category = "Interaction Debug")
-	bool bEnableDebugTraces;
+	void PrimaryInteract();
 
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
+	bool IsInteractable;
 	//UPROPERTY(VisibleAnywhere)
 	
 

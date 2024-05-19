@@ -11,7 +11,7 @@ UMfInteractionComponent::UMfInteractionComponent()
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
 
-	bEnableDebugTraces = false;
+	IsInteractable = false;
 	InteractionRange = 300.0f;
 	// ...
 }
@@ -25,6 +25,7 @@ void UMfInteractionComponent::BeginPlay()
 	// ...
 	
 }
+
 
 // Called every frame
 void UMfInteractionComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
@@ -60,9 +61,7 @@ void UMfInteractionComponent::PrimaryInteract()
 
 	for (FHitResult Hit : Hits)
 	{
-		if (bEnableDebugTraces)
-			DrawDebugSphere(GetWorld(), Hit.ImpactPoint, Radius, 32, FColor::Red, false, 2.0f);
-
+		//DrawDebugSphere(GetWorld(), Hit.ImpactPoint, Radius, 32, FColor::Red, false, 2.0f);
 		AActor* HitActor = Hit.GetActor();
 		if (HitActor)
 		{
@@ -76,6 +75,5 @@ void UMfInteractionComponent::PrimaryInteract()
 		}
 	}
 
-	if(bEnableDebugTraces)
-		DrawDebugLine(GetWorld(), Start, End, FColor::Red, false, 2.0f, 0, 2.0f);
+	//DrawDebugLine(GetWorld(), Start, End, FColor::Red, false, 2.0f, 0, 2.0f);
 }
