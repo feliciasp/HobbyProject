@@ -65,10 +65,18 @@ void AMfEntity::OnVolumeEndOverlap(UPrimitiveComponent* OverlappedComponent, AAc
 bool AMfEntity::ApplyRestorationChange(float Delta)
 {
 	Restoration += Delta;
+	Restoration = FMath::Clamp(Restoration, 0, 1);
+
 	return true;
 }
 
 float AMfEntity::GetRestoration()
 {
 	return Restoration;
+}
+
+void AMfEntity::SetRestoration(float Value)
+{
+	Restoration = Value;
+	Restoration = FMath::Clamp(Restoration, 0, 1);
 }
