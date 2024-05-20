@@ -7,6 +7,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "MfInteractionComponent.h"
+#include "Player/Encyclopedia/MfEncyclopedia.h"
 
 // Sets default values
 AMfCharacter::AMfCharacter()

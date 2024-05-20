@@ -13,6 +13,21 @@
 class UBoxComponent;
 class UWidgetComponent;
 
+USTRUCT(BlueprintType)
+struct FEntityProperties
+{
+	GENERATED_USTRUCT_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float Restoration;
+
+	//default values
+	FEntityProperties()
+	{
+		Restoration = 0.0f;
+	}
+};
+
 UCLASS()
 class HOBBYPROJECT_API AMfEntity : public ACharacter, public IMfGameplayInterface
 {
@@ -49,11 +64,14 @@ protected:
 
 public:	
 
-	UFUNCTION(BlueprintCallable, Category = "MF Attributes")
+	UFUNCTION(BlueprintCallable, Category = "Entity Properties")
 	bool ApplyRestorationChange(float Delta);
 
-	UFUNCTION(BlueprintCallable, Category = "MF Attributes")
+	UFUNCTION(BlueprintCallable, Category = "Entity Properties")
 	float GetRestoration();
+
+	UFUNCTION(BlueprintCallable, Category = "Entity Properties")
+	void SetRestoration(float Value);
 
 	// Called every frame
 	//virtual void Tick(float DeltaTime) override;
