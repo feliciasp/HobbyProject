@@ -32,6 +32,9 @@ protected:
 	UPROPERTY(VisibleAnywhere)
 	UMfInteractionComponent* InteractionComp;
 
+	UPROPERTY(BlueprintReadWrite)
+	bool bDisableMovement = false;
+
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 

@@ -43,12 +43,14 @@ void AMfCharacter::Tick(float DeltaTime)
 
 void AMfCharacter::MoveForward(float InMovement)
 {
-	AddMovementInput(GetActorForwardVector(), InMovement);
+	if(!bDisableMovement)
+		AddMovementInput(GetActorForwardVector(), InMovement);
 }
 
 void AMfCharacter::MoveRight(float InMovement)
 {
-	AddMovementInput(GetActorRightVector(), InMovement);
+	if (!bDisableMovement)
+		AddMovementInput(GetActorRightVector(), InMovement);
 }
 
 // Called to bind functionality to input
